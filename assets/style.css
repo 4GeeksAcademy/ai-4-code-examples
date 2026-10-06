@@ -1,9 +1,31 @@
+:root {
+  /* This selects the root element of the page */
+  /* in our case it's probably the body? */
+
+  --main-bg: rgb(231, 129, 140);
+  --base-font-size: 32px;
+}
+
 /* Bare word selectors select a specific tag */
 body {
   margin: 0;
   padding: 0;
   min-width: 100%;
   min-height: 1dvw;
+
+  background-color: var(--main-bg);
+  font-size: var(--base-font-size);
+}
+
+main {
+  width: max-content;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
 }
 
 /* . means class in selector-speak */
