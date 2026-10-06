@@ -1,0 +1,46 @@
+/* Bare word selectors select a specific tag */
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 100%;
+  min-height: 1dvw;
+}
+
+/* . means class in selector-speak */
+.square-two {
+  background-color: rgb(6, 126, 62);
+}
+
+/* # is either a pound sign, hashtag, or octothorpe */
+/* It means id in selector-speak */
+#main-header {
+  width: 100%;
+  min-height: 5rem;
+  background-color: rgb(90, 20, 164);
+}
+
+.square {
+  aspect-ratio: 1;
+  border-radius: 1rem;
+  width: 15rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 1rem;
+  margin: 1rem;
+
+  & pre {
+    font-size: xx-large;
+    color: rgba(204, 204, 204, 0.5);
+  }
+}
+
+.square-one {
+  background-color: rgb(0, 153, 204);
+
+  & pre {
+    color: #ccc !important;
+  }
+}
