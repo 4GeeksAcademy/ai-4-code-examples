@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semantic HTML Demo — Blog</title>
+    <meta name="description" content="Articles and guides about semantic HTML, web accessibility, and modern CSS. Read practical tutorials on building better, more meaningful web pages." />
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+
+  <body>
+    <!-- Skip link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Site-wide masthead -->
+    <header id="main-header">
+      <div class="container">
+        <h1 class="sr-only">Semantic HTML Demo</h1>
+        <nav aria-label="Main navigation">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/portfolio/">Portfolio</a></li>
+            <li><a href="/forms/">Forms</a></li>
+            <li><a href="/blog/" class="active">Blog</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Primary page content -->
+    <main id="main-content">
+      <div class="container">
+        <h1>Blog</h1>
+        <p class="helper-text">
+          A multi-article grid layout demonstrating cards, excerpts, and
+          pagination.
+        </p>
+
+        <!-- Blog card grid -->
+        <div class="blog-grid">
+          <article class="blog-card">
+            <header>
+              <time datetime="2026-10-06">6 Oct 2026</time>
+              <h3>
+                <a href="/blog/article.html"
+                  >Getting Started with Semantic HTML</a
+                >
+              </h3>
+            </header>
+            <section>
+              <p>
+                Semantic HTML is the foundation of accessible, well-structured
+                web pages. Learn how elements like <code>&lt;header&gt;</code>,
+                <code>&lt;main&gt;</code>, and <code>&lt;article&gt;</code>
+                give meaning to your markup.
+              </p>
+            </section>
+            <footer>
+              <a href="/blog/article.html" class="button button-small"
+                >Read more</a
+              >
+            </footer>
+          </article>
+
+          <article class="blog-card">
+            <header>
+              <time datetime="2026-10-04">4 Oct 2026</time>
+              <h3>
+                <a href="/blog/article.html"
+                  >CSS Custom Properties: A Beginner's Guide</a
+                >
+              </h3>
+            </header>
+            <section>
+              <p>
+                CSS custom properties (also called design tokens) let you define
+                reusable values for colours, spacing, and shadows. They make
+                your stylesheets easier to maintain and theme.
+              </p>
+            </section>
+            <footer>
+              <a href="/blog/article.html" class="button button-small"
+                >Read more</a
+              >
+            </footer>
+          </article>
+
+          <article class="blog-card">
+            <header>
+              <time datetime="2026-10-01">1 Oct 2026</time>
+              <h3>
+                <a href="/blog/article.html"
+                  >Skeuomorphism in Modern UI Design</a
+                >
+              </h3>
+            </header>
+            <section>
+              <p>
+                Skeuomorphic design mimics real-world objects (buttons that look
+                pressable, cards that lift on hover) to create intuitive
+                interfaces. Done subtly, it delights without distracting.
+              </p>
+            </section>
+            <footer>
+              <a href="/blog/article.html" class="button button-small"
+                >Read more</a
+              >
+            </footer>
+          </article>
+
+          <article class="blog-card">
+            <header>
+              <time datetime="2026-09-28">28 Sep 2026</time>
+              <h3>
+                <a href="/blog/article.html"
+                  >Building Accessible Forms with ARIA</a
+                >
+              </h3>
+            </header>
+            <section>
+              <p>
+                ARIA attributes like <code>aria-describedby</code> and
+                <code>aria-invalid</code> bridge the gap between native HTML and
+                custom validation patterns — keeping your forms usable for
+                everyone.
+              </p>
+            </section>
+            <footer>
+              <a href="/blog/article.html" class="button button-small"
+                >Read more</a
+              >
+            </footer>
+          </article>
+
+          <article class="blog-card">
+            <header>
+              <time datetime="2026-09-25">25 Sep 2026</time>
+              <h3>
+                <a href="/blog/article.html"
+                  >Responsive Layouts Without Frameworks</a
+                >
+              </h3>
+            </header>
+            <section>
+              <p>
+                With CSS Grid, Flexbox, and mobile-first media queries, you can
+                build complex, responsive layouts using zero kilobytes of
+                JavaScript. Pure CSS is remarkably powerful.
+              </p>
+            </section>
+            <footer>
+              <a href="/blog/article.html" class="button button-small"
+                >Read more</a
+              >
+            </footer>
+          </article>
+
+          <article class="blog-card">
+            <header>
+              <time datetime="2026-09-22">22 Sep 2026</time>
+              <h3>
+                <a href="/blog/article.html"
+                  >Colour Contrast and WCAG Compliance</a
+                >
+              </h3>
+            </header>
+            <section>
+              <p>
+                Choosing colours with sufficient contrast is one of the easiest
+                ways to improve accessibility. Learn how to audit your palette
+                and meet WCAG AA standards with confidence.
+              </p>
+            </section>
+            <footer>
+              <a href="/blog/article.html" class="button button-small"
+                >Read more</a
+              >
+            </footer>
+          </article>
+        </div>
+
+        <!-- Pagination -->
+        <nav class="pagination" aria-label="Blog pagination">
+          <a href="#" class="active" aria-current="page">1</a>
+          <a href="#">2</a>
+          <a href="#">3</a>
+          <a href="#">&hellip;</a>
+          <a href="#">6</a>
+        </nav>
+      </div>
+    </main>
+
+    <!-- Page footer -->
+    <footer class="page-footer">
+      <div class="container">
+        <p>&copy; 2026 Semantic HTML Demo</p>
+        <nav aria-label="Footer links">
+          <a href="https://github.com/">GitHub</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

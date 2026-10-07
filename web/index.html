@@ -3,59 +3,106 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>This is what's shows in the tab.</title>
-    <!-- The head tag contains info about the page. -->
+    <title>Semantic HTML Demo — Home</title>
+    <meta name="description" content="A friendly, uncluttered demo of meaningful HTML markup and modern CSS. Explore how semantic elements, accessible forms, and visual craftsmanship come together." />
     <link rel="stylesheet" href="/assets/style.css" />
   </head>
 
   <body>
-    <!-- 0 1 2 3 4 5 6 7 8 9 A B C D E F -->
+    <!-- Skip link: first focusable element -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Site-wide masthead -->
     <header id="main-header">
-      <!-- The header is where the top of your page goes. -->
-      <!-- Not to be confused with headins or the head tag. -->
-      <nav>
-        <!-- The nav tag contains the main navigation of a page. -->
-        <a href="portfolio/"
-          >Anchor tags (or a tags) make a hyperlink to other pages.</a
-        >
-      </nav>
+      <div class="container">
+        <h1 class="sr-only">Semantic HTML Demo</h1>
+        <nav aria-label="Main navigation">
+          <ul>
+            <li><a href="/" class="active">Home</a></li>
+            <li><a href="/portfolio/">Portfolio</a></li>
+            <li><a href="/forms/">Forms</a></li>
+            <li><a href="/blog/">Blog</a></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <!-- The main tag should be the main container of your page. -->
-    <main>
-      <!-- headings -->
-      <h1>Hello world!</h1>
-      <h2>Hello world (but smaller)</h2>
-      <h3>Hello world</h3>
-      <h4>Hello world</h4>
-      <h5>Hello world</h5>
-      <h6>Hello world (again)</h6>
+    <!-- Primary page content -->
+    <main id="main-content">
+      <div class="container">
+        <!-- Hero section -->
+        <section class="hero">
+          <h1>Semantic HTML &amp; Modern CSS</h1>
+          <p>
+            A friendly, uncluttered demo of meaningful markup and visual
+            craftsmanship — built with pure HTML &amp; CSS, zero frameworks, and
+            a whole lot of heart.
+          </p>
+          <a href="/forms/" class="button button-large">Explore the forms</a>
+        </section>
 
-      <!-- Semantic divisions -->
-      <section>
-        <!-- Sections are groupings on a page -->
-        <article>
-          <!-- Articles are self-contained elements on a page. -->
-          <div
-            id="first-square"
-            class="square square-one"
-            aria-label="Color swatch"
-          >
-            <!-- Div tags are generic divisions of a page. -->
-            <pre>random text</pre>
-          </div>
-          <div class="square square-two">
-            <pre>random text</pre>
-          </div>
-        </article>
-        <article>
-          <img src="/assets/trustme.png" alt="" />
-        </article>
-      </section>
+        <!-- Demo grid: semantic containers -->
+        <section class="demo-grid">
+          <article>
+            <h2>Colour &amp; Containers</h2>
+            <p>
+              Semantic elements like <code>&lt;section&gt;</code>,
+              <code>&lt;article&gt;</code>, and <code>&lt;div&gt;</code>
+              give structure to your content. These coloured squares demonstrate
+              how containers build a page.
+            </p>
+            <div
+              class="square square-one"
+              aria-label="Color swatch showing primary rose hue"
+            ></div>
+            <div
+              class="square square-two"
+              aria-label="Color swatch showing sage green hue"
+            ></div>
+          </article>
 
-      <footer>
-        <!-- The footer contains the foot of the document. -->
-      </footer>
+          <article>
+            <h2>Cards &amp; Shadows</h2>
+            <p>
+              Every card uses a subtle gradient background, a raised shadow, and
+              a slight lift on hover — skeuomorphic touches that reward
+              interaction.
+            </p>
+            <div
+              class="square square-three"
+              aria-label="Color swatch showing steel blue hue"
+            ></div>
+            <div
+              class="square square-four"
+              aria-label="Color swatch showing warm off-white hue"
+            ></div>
+          </article>
+        </section>
+
+        <!-- Media section -->
+        <section class="media-section">
+          <figure>
+            <img
+              src="/assets/trustme.png"
+              alt="A placeholder image demonstrating the figure and figcaption pattern"
+            />
+            <figcaption>
+              A figure with a caption — accessible, semantic, and styled with
+              the same care as the rest of the page.
+            </figcaption>
+          </figure>
+        </section>
+      </div>
     </main>
+
+    <!-- Page footer -->
+    <footer class="page-footer">
+      <div class="container">
+        <p>&copy; 2026 Semantic HTML Demo</p>
+        <nav aria-label="Footer links">
+          <a href="https://github.com/">GitHub</a>
+        </nav>
+      </div>
+    </footer>
   </body>
 </html>

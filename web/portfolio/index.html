@@ -3,28 +3,74 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio page</title>
+    <title>Semantic HTML Demo — Portfolio</title>
+    <meta name="description" content="A showcase of accessible HTML and CSS examples in a card-based portfolio layout. Demonstrating responsive design, semantic structure, and visual polish." />
     <link rel="stylesheet" href="/assets/style.css" />
   </head>
+
   <body>
-    <main>
-      <section>
-        <!-- Sections are groupings on a page -->
-        <article>
-          <!-- Articles are self-contained elements on a page. -->
+    <!-- Skip link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Site-wide masthead -->
+    <header id="main-header">
+      <div class="container">
+        <h1 class="sr-only">Semantic HTML Demo</h1>
+        <nav aria-label="Main navigation">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/portfolio/" class="active">Portfolio</a></li>
+            <li><a href="/forms/">Forms</a></li>
+            <li><a href="/blog/">Blog</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Primary page content -->
+    <main id="main-content">
+      <div class="container">
+        <h1>Portfolio</h1>
+        <p class="helper-text">
+          A stripped-back example of content re-use and page hierarchy.
+        </p>
+
+        <!-- Single article with colour swatches -->
+        <article class="card">
+          <h2>Colour Study</h2>
+          <p>
+            This article demonstrates how semantic containers carry across
+            pages. The same structural patterns you saw on the homepage reappear
+            here in a focused layout.
+          </p>
           <div
-            id="first-square"
             class="square square-one"
-            aria-label="Color swatch"
-          >
-            <!-- Div tags are generic divisions of a page. -->
-            <pre>random text</pre>
-          </div>
-          <div class="square square-two">
-            <pre>random text</pre>
-          </div>
+            aria-label="Color swatch showing primary rose hue"
+          ></div>
+          <div
+            class="square square-two"
+            aria-label="Color swatch showing sage green hue"
+          ></div>
+          <div
+            class="square square-three"
+            aria-label="Color swatch showing steel blue hue"
+          ></div>
+          <div
+            class="square square-four"
+            aria-label="Color swatch showing warm off-white hue"
+          ></div>
         </article>
-      </section>
+      </div>
     </main>
+
+    <!-- Page footer -->
+    <footer class="page-footer">
+      <div class="container">
+        <p>&copy; 2026 Semantic HTML Demo</p>
+        <nav aria-label="Footer links">
+          <a href="https://github.com/">GitHub</a>
+        </nav>
+      </div>
+    </footer>
   </body>
 </html>

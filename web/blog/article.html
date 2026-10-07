@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Getting Started with Semantic HTML — Blog</title>
+    <meta
+      name="description"
+      content="Learn why semantic HTML matters for accessibility, SEO, and maintainability. A practical guide to using header, nav, main, article, and section elements."
+    />
+    <meta name="author" content="Jane Doe" />
+    <link rel="canonical" href="https://example.com/blog/article.html" />
+    <link rel="stylesheet" href="/assets/style.css" />
+
+    <!-- Open Graph / Social meta tags -->
+    <meta property="og:title" content="Getting Started with Semantic HTML" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Semantic HTML Demo" />
+    <meta
+      property="og:image"
+      content="https://psychic-system-7vvw554x6rxfxxp5-8080.app.github.dev/assets/trustme.png"
+    />
+    <meta
+      property="og:url"
+      content="https://psychic-system-7vvw554x6rxfxxp5-8080.app.github.dev/blog/article.html"
+    />
+    <meta
+      property="og:description"
+      content="Learn why semantic HTML matters for accessibility, SEO, and maintainability. A practical guide to using header, nav, main, article, and section elements."
+    />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- JSON-LD Structured Data (Schema.org) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Getting Started with Semantic HTML",
+        "image": [
+          "https://psychic-system-7vvw554x6rxfxxp5-8080.app.github.dev/assets/trustme.png"
+        ],
+        "url": "https://example.com/blog/article.html",
+        "datePublished": "2026-10-06T10:00:00Z",
+        "dateModified": "2026-10-07T10:00:00Z",
+        "author": [
+          {
+            "@type": "Person",
+            "name": "Jane Doe",
+            "url": "https://example.com/profile/janedoe123"
+          }
+        ],
+        "publisher": {
+          "@type": "Organization",
+          "name": "Semantic HTML Demo",
+          "url": "https://example.com"
+        },
+        "description": "Learn why semantic HTML matters for accessibility, SEO, and maintainability. A practical guide to using header, nav, main, article, and section elements.",
+        "about": {
+          "@type": "Thing",
+          "name": "Semantic HTML",
+          "sameAs": "https://en.wikipedia.org/wiki/Semantic_HTML"
+        },
+        "keywords": [
+          "semantic HTML",
+          "web accessibility",
+          "ARIA",
+          "SEO",
+          "HTML landmarks"
+        ],
+        "inLanguage": "en-US",
+        "timeRequired": "PT4M",
+        "wordCount": "400"
+      }
+    </script>
+  </head>
+
+  <body>
+    <!-- Skip link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Site-wide masthead -->
+    <header id="main-header">
+      <div class="container">
+        <h1 class="sr-only">Semantic HTML Demo</h1>
+        <nav aria-label="Main navigation">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/portfolio/">Portfolio</a></li>
+            <li><a href="/forms/">Forms</a></li>
+            <li><a href="/blog/" aria-current="page">Blog</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Primary page content -->
+    <main id="main-content">
+      <div class="container">
+        <!-- Breadcrumbs -->
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <ol>
+            <li><a href="/">Home</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li aria-current="page">Getting Started with Semantic HTML</li>
+          </ol>
+        </nav>
+
+        <article aria-labelledby="article-heading">
+          <header>
+            <h1 id="article-heading">Getting Started with Semantic HTML</h1>
+            <p class="helper-text">
+              <time datetime="2026-10-06">6 October 2026</time>
+              &middot; 4 min read
+            </p>
+          </header>
+
+          <section aria-labelledby="section-heading-1">
+            <h2 id="section-heading-1">Why Semantic HTML Matters</h2>
+            <p>
+              Semantic HTML means using the right element for the right job.
+              Instead of wrapping everything in a <code>&lt;div&gt;</code>, you
+              use elements like <code>&lt;header&gt;</code>,
+              <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>,
+              <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, and
+              <code>&lt;footer&gt;</code> to describe the structure of your
+              content.
+            </p>
+            <p>
+              Why does this matter? Screen readers and other assistive
+              technologies rely on landmarks to help users navigate. Search
+              engines use heading hierarchies to understand page structure. And
+              for you, the developer, semantic elements make your HTML easier to
+              read and maintain.
+            </p>
+          </section>
+
+          <section aria-labelledby="section-heading-2">
+            <h2 id="section-heading-2">Page Structure</h2>
+            <p>Every page on this site follows the same structural pattern:</p>
+            <figure aria-label="Code sample showing the page structure pattern">
+              <pre><code>&lt;header id="main-header"&gt;
+  &lt;nav aria-label="Main navigation"&gt;…&lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main id="main-content"&gt;
+  &lt;article&gt;
+    &lt;h1&gt;Page title&lt;/h1&gt;
+    &lt;section&gt;…&lt;/section&gt;
+  &lt;/article&gt;
+&lt;/main&gt;
+
+&lt;footer class="page-footer"&gt;…&lt;/footer&gt;</code></pre>
+            </figure>
+          </section>
+
+          <section aria-labelledby="section-heading-3">
+            <h2 id="section-heading-3">Key Benefits</h2>
+            <ul>
+              <li>
+                <strong>Accessibility</strong> — Landmarks give screen-reader
+                users quick navigation.
+              </li>
+              <li>
+                <strong>SEO</strong> — Search engines weigh heading hierarchies
+                and semantic structure.
+              </li>
+              <li>
+                <strong>Maintainability</strong> — Clear structure makes
+                collaborative editing easier.
+              </li>
+              <li>
+                <strong>Future-proofing</strong> — Standards-compliant HTML
+                works in every browser.
+              </li>
+            </ul>
+          </section>
+
+          <footer>
+            <p>
+              <a href="/blog/" class="button"
+                ><span aria-hidden="true">&larr;</span> Back to Blog</a
+              >
+            </p>
+          </footer>
+        </article>
+      </div>
+    </main>
+
+    <!-- Page footer -->
+    <footer class="page-footer">
+      <div class="container">
+        <p>&copy; 2026 Semantic HTML Demo</p>
+        <nav aria-label="Footer links">
+          <a
+            href="https://github.com/"
+            aria-label="Visit the Semantic HTML Demo repository on GitHub"
+            >GitHub</a
+          >
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

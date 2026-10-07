@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Semantic HTML Demo — Forms</title>
+    <meta name="description" content="Accessible HTML form examples demonstrating proper labels, fieldset grouping, ARIA attributes, and validation patterns for inclusive web design." />
+    <link rel="stylesheet" href="/assets/style.css" />
+  </head>
+
+  <body>
+    <!-- Skip link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Site-wide masthead -->
+    <header id="main-header">
+      <div class="container">
+        <h1 class="sr-only">Semantic HTML Demo</h1>
+        <nav aria-label="Main navigation">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/portfolio/">Portfolio</a></li>
+            <li><a href="/forms/" class="active">Forms</a></li>
+            <li><a href="/blog/">Blog</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Primary page content -->
+    <main id="main-content">
+      <div class="container">
+        <h1>Form Examples</h1>
+        <p class="helper-text">
+          Demonstrating accessible form controls, native validation, and custom
+          error styling.
+        </p>
+
+        <!-- ── Contact Form ────────────────────────────────── -->
+        <section class="form-demo">
+          <h2>Contact Form</h2>
+
+          <form action="#" method="post" novalidate>
+            <!-- Name & Email side-by-side on tablet+ -->
+            <div class="form-row">
+              <p>
+                <label for="contact-name">Name</label>
+                <input
+                  type="text"
+                  id="contact-name"
+                  name="name"
+                  placeholder="e.g. Ada Lovelace"
+                  autocomplete="name"
+                />
+              </p>
+              <p>
+                <label for="contact-email">Email</label>
+                <input
+                  type="email"
+                  id="contact-email"
+                  name="email"
+                  placeholder="e.g. ada@example.com"
+                  autocomplete="email"
+                />
+              </p>
+            </div>
+
+            <p>
+              <label for="contact-subject">Subject</label>
+              <select id="contact-subject" name="subject">
+                <option value="">— Please choose —</option>
+                <option value="general">General enquiry</option>
+                <option value="support">Technical support</option>
+                <option value="feedback">Feedback</option>
+              </select>
+            </p>
+
+            <p>
+              <label for="contact-message">Message</label>
+              <textarea
+                id="contact-message"
+                name="message"
+                rows="5"
+                placeholder="Write your message here…"
+              ></textarea>
+            </p>
+
+            <p>
+              <label>
+                <input type="checkbox" name="newsletter" checked />
+                Subscribe to our newsletter
+              </label>
+            </p>
+
+            <p>
+              <button type="submit">Send message</button>
+            </p>
+          </form>
+        </section>
+
+        <!-- ── Validation Demo ─────────────────────────────── -->
+        <section class="form-demo">
+          <h2>Validation Demo</h2>
+          <p class="helper-text">
+            This form uses native HTML5 validation. Try submitting with empty
+            required fields or an invalid email to see the built-in error
+            messages — then scroll down for the custom error example.
+          </p>
+
+          <form action="#" method="post">
+            <div class="form-row">
+              <p>
+                <label for="val-name"
+                  >Full name <abbr title="required">*</abbr></label
+                >
+                <input
+                  type="text"
+                  id="val-name"
+                  name="name"
+                  required
+                  autocomplete="name"
+                  aria-describedby="name-help"
+                />
+                <span class="helper-text" id="name-help"
+                  >Enter your first and last name.</span
+                >
+              </p>
+              <p>
+                <label for="val-email"
+                  >Email <abbr title="required">*</abbr></label
+                >
+                <input
+                  type="email"
+                  id="val-email"
+                  name="email"
+                  required
+                  autocomplete="email"
+                  aria-describedby="email-help"
+                />
+                <span class="helper-text" id="email-help"
+                  >We will never share your email.</span
+                >
+              </p>
+            </div>
+
+            <fieldset>
+              <legend>Preferred contact method</legend>
+
+              <label>
+                <input
+                  type="radio"
+                  name="contact-method"
+                  value="email"
+                  checked
+                />
+                Email
+              </label>
+              <label>
+                <input type="radio" name="contact-method" value="phone" />
+                Phone
+              </label>
+              <label>
+                <input type="radio" name="contact-method" value="post" />
+                Post
+              </label>
+            </fieldset>
+
+            <fieldset>
+              <legend>Areas of interest</legend>
+
+              <label>
+                <input type="checkbox" name="interest" value="html" />
+                HTML
+              </label>
+              <label>
+                <input type="checkbox" name="interest" value="css" />
+                CSS
+              </label>
+              <label>
+                <input type="checkbox" name="interest" value="a11y" />
+                Accessibility
+              </label>
+            </fieldset>
+
+            <p>
+              <button type="submit">Submit</button>
+            </p>
+          </form>
+        </section>
+
+        <!-- ── Custom Error States ─────────────────────────── -->
+        <section class="form-demo">
+          <h2>Custom Error States</h2>
+          <p class="helper-text">
+            When native validation falls short, you can style errors manually
+            with the <code>.error</code> class and provide descriptive error
+            text via <code>aria-describedby</code>.
+          </p>
+
+          <form action="#" method="post">
+            <p>
+              <label for="err-name">Full name</label>
+              <input
+                type="text"
+                id="err-name"
+                name="name"
+                class="error"
+                aria-invalid="true"
+                aria-describedby="err-name-text"
+                value="Invalid value"
+              />
+              <span class="error-text" id="err-name-text"
+                >Please enter a valid name (letters only).</span
+              >
+            </p>
+            <p>
+              <label for="err-email">Email</label>
+              <input
+                type="email"
+                id="err-email"
+                name="email"
+                class="error"
+                aria-invalid="true"
+                aria-describedby="err-email-text"
+                value="not-an-email"
+              />
+              <span class="error-text" id="err-email-text"
+                >Enter an email address in the format name@domain.com.</span
+              >
+            </p>
+            <p>
+              <button type="submit">Try again</button>
+            </p>
+          </form>
+        </section>
+      </div>
+    </main>
+
+    <!-- Page footer -->
+    <footer class="page-footer">
+      <div class="container">
+        <p>&copy; 2026 Semantic HTML Demo</p>
+        <nav aria-label="Footer links">
+          <a href="https://github.com/">GitHub</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>

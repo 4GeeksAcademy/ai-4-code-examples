@@ -1,68 +1,673 @@
-:root {
-  /* This selects the root element of the page */
-  /* in our case it's probably the body? */
+/* =============================================================
+   Semantic HTML Demo Site — style.css
+   Single source of truth for all styles.
+   Sections:
+     1.  Custom Properties / Design Tokens
+     2.  Reset / Global Styles
+     3.  Typography
+     4.  Layout
+     5.  Navigation
+     6.  Buttons
+     7.  Forms
+     8.  Cards
+     9.  Skeuomorphic Utilities
+    10.  Utilities
+    11.  Media Queries
+   ============================================================= */
 
-  --main-bg: rgb(231, 129, 140);
-  --base-font-size: 32px;
+/* ---- 1. Custom Properties / Design Tokens ------------------ */
+:root {
+  /* Colors */
+  --color-text: rgb(13, 7, 7);
+  --color-bg: rgb(239, 230, 230);
+  --color-primary: rgb(231, 131, 141);
+  --color-secondary: rgb(162, 206, 191);
+  --color-accent: rgb(123, 147, 185);
+
+  --gradient-main: linear-gradient(
+    90deg,
+    rgb(231, 131, 141),
+    rgb(173, 231, 131),
+    rgb(162, 206, 191)
+  );
+
+  /* Spacing scale */
+  --space-025: 0.25rem;
+  --space-05: 0.5rem;
+  --space-1: 1rem;
+  --space-15: 1.5rem;
+  --space-2: 2rem;
+  --space-3: 3rem;
+  --space-4: 4rem;
+
+  /* Borders */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 1rem;
+  --border-color: var(--color-accent);
+
+  /* Shadows */
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-card-hover: 0 4px 16px rgba(0, 0, 0, 0.15);
+  --shadow-button: 0 2px 4px rgba(0, 0, 0, 0.15);
+  --shadow-inset: inset 0 2px 6px rgba(0, 0, 0, 0.12);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 350ms ease;
+
+  /* Focus */
+  --focus-ring: 0 0 0 2px var(--color-accent);
 }
 
-/* Bare word selectors select a specific tag */
-body {
+/* ---- 2. Reset / Global Styles ------------------------------ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  min-width: 100%;
-  min-height: 1dvw;
-
-  background-color: var(--main-bg);
-  font-size: var(--base-font-size);
 }
 
-main {
-  width: max-content;
-  margin: 0 auto;
-  padding: 1.5rem 2rem;
+html {
+  scroll-behavior: smooth;
+}
 
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.5;
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: normal;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Georgia, serif;
+  font-weight: 700;
+}
+
+h1 { font-size: 2.5rem; line-height: 1.2; }
+h2 { font-size: 2.0rem; line-height: 1.25; }
+h3 { font-size: 1.5rem; line-height: 1.3; }
+h4 { font-size: 1.25rem; line-height: 1.4; font-weight: 600; }
+h5 { font-size: 1.0rem; line-height: 1.5; font-weight: 600; }
+h6 { font-size: 0.875rem; line-height: 1.5; font-weight: 600; }
+
+strong, b { font-weight: 700; }
+
+em, i { font-style: italic; }
+
+code, pre {
+  font-family: 'Cascadia Code', 'Fira Code', Consolas, monospace;
+  font-size: 0.875em;
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: var(--border-radius-sm);
+}
+
+code {
+  padding: 0.125rem 0.35rem;
+}
+
+pre {
+  padding: var(--space-1);
+  overflow-x: auto;
+  white-space: pre-wrap;
+}
+
+/* ---- 4. Layout --------------------------------------------- */
+.container {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: 0 clamp(1rem, 4vw, 2rem);
+}
+
+/* Skip link — visually hidden until focused */
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: translateY(-100%);
+  background: var(--color-primary);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  z-index: 1000;
+  transition: transform var(--transition-fast);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* ---- 5. Navigation ----------------------------------------- */
+nav ul {
+  list-style: none;
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  padding: 0;
 }
 
-/* . means class in selector-speak */
-.square-two {
-  background-color: rgb(6, 126, 62);
+nav a {
+  display: block;
+  padding: 0.5rem 1rem;
+  border-bottom: 2px solid transparent;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+  transition: border-color var(--transition-normal),
+              background-color var(--transition-normal),
+              color var(--transition-normal);
 }
 
-/* # is either a pound sign, hashtag, or octothorpe */
-/* It means id in selector-speak */
-#main-header {
+nav a:hover {
+  border-bottom-color: var(--color-primary);
+}
+
+nav a:focus-visible {
+  box-shadow: var(--focus-ring);
+}
+
+nav a.active {
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: var(--border-radius-md);
+  border-bottom-color: transparent;
+}
+
+/* ---- 6. Buttons -------------------------------------------- */
+.button,
+button {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-md);
+  padding: 0.5rem 1.25rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--shadow-button);
+  transition: var(--transition-fast);
+}
+
+.button:hover,
+button:hover {
+  filter: brightness(0.9);
+  cursor: pointer;
+}
+
+.button:focus-visible,
+button:focus-visible {
+  box-shadow: var(--focus-ring);
+}
+
+.button:active,
+button:active {
+  box-shadow: var(--shadow-inset);
+  transform: translateY(2px);
+  filter: none;
+}
+
+.button:disabled,
+button:disabled,
+button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* Variants */
+.button-small {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+.button-large {
+  padding: 0.75rem 2rem;
+  font-size: 1.125rem;
+}
+
+.button-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-text);
+}
+
+.button-ghost {
+  background: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* ---- 7. Forms ---------------------------------------------- */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea,
+select {
+  border: 1px solid var(--color-accent);
+  border-radius: var(--border-radius-md);
+  padding: 0.5rem 0.75rem;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: var(--transition-normal);
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
   width: 100%;
-  min-height: 5rem;
-  background-color: rgb(90, 20, 164);
 }
 
-.square {
-  aspect-ratio: 1;
-  border-radius: 1rem;
-  width: 15rem;
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px var(--color-accent);
+  outline: none;
+}
 
+input[type="text"]:disabled,
+input[type="email"]:disabled,
+input[type="password"]:disabled,
+textarea:disabled,
+select:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: rgba(0, 0, 0, 0.03);
+}
+
+/* Error state */
+.error,
+input:user-invalid,
+textarea:user-invalid {
+  border-color: #c93a3a;
+  box-shadow: 0 0 0 2px #c93a3a;
+}
+
+.helper-text {
+  font-size: 0.875rem;
+  color: var(--color-text);
+  opacity: 0.7;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.error-text {
+  font-size: 0.875rem;
+  color: #c93a3a;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* Labels above inputs */
+label {
+  display: block;
+  margin-bottom: var(--space-025);
+  font-weight: 600;
+}
+
+/* Fieldset / legend */
+fieldset {
+  border: 1px solid var(--color-accent);
+  border-radius: var(--border-radius-md);
+  padding: var(--space-1);
+  margin-bottom: var(--space-1);
+}
+
+legend {
+  font-weight: 700;
+  padding: 0 0.5rem;
+}
+
+/* Checkbox / radio custom styling */
+input[type="checkbox"],
+input[type="radio"] {
+  appearance: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  border: 2px solid var(--color-accent);
+  background: var(--color-bg);
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-right: 0.375rem;
+  flex-shrink: 0;
+}
+
+input[type="checkbox"] {
+  border-radius: var(--border-radius-sm);
+}
+
+input[type="radio"] {
+  border-radius: 50%;
+}
+
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+input[type="checkbox"]:checked::before {
+  content: "✓";
+  display: block;
+  color: white;
+  text-align: center;
+  line-height: 1;
+}
+
+input[type="radio"]:checked::before {
+  content: "";
+  display: block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: white;
+  margin: 0.1875rem;
+}
+
+input[type="checkbox"]:focus-visible,
+input[type="radio"]:focus-visible {
+  box-shadow: var(--focus-ring);
+}
+
+/* ---- 8. Cards ---------------------------------------------- */
+.blog-card,
+.card {
+  border-radius: var(--border-radius-md);
+  padding: var(--space-1);
+  box-shadow: var(--shadow-card);
+  background: linear-gradient(
+    180deg,
+    rgba(162, 206, 191, 0.1),
+    transparent
+  );
+  box-shadow: var(--shadow-card), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: transform var(--transition-normal),
+              box-shadow var(--transition-normal);
+}
+
+.blog-card:hover,
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.blog-card header,
+.card header {
+  margin-bottom: var(--space-05);
+}
+
+.blog-card time {
+  font-size: 0.875rem;
+  opacity: 0.7;
+  display: block;
+}
+
+.blog-card h3 {
+  margin-top: var(--space-025);
+}
+
+.blog-card section {
+  margin-bottom: var(--space-05);
+}
+
+.blog-card footer {
+  text-align: right;
+}
+
+article {
+  margin-bottom: var(--space-2);
+}
+
+article footer {
+  margin-top: var(--space-1);
+  padding-bottom: var(--space-1);
+}
+
+/* ---- 9. Skeuomorphic Utilities ----------------------------- */
+/* Cards already defined above; buttons already defined above.
+   This section reserved for future shared skeuomorphic patterns. */
+
+/* ---- 10. Utilities ----------------------------------------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Hero section */
+.hero {
+  text-align: center;
+  padding: var(--space-4) var(--space-1);
+  background: var(--gradient-main);
+  color: var(--color-text);
+  border-radius: var(--border-radius-lg);
+  margin-bottom: var(--space-3);
+}
+
+.hero h1 {
+  margin-bottom: var(--space-1);
+}
+
+.hero p {
+  font-size: 1.125rem;
+  max-width: 36em;
+  margin-inline: auto;
+  margin-bottom: var(--space-15);
+}
+
+/* Demo grid */
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-15);
+  margin-bottom: var(--space-3);
+}
+
+.demo-grid article {
+  border-radius: var(--border-radius-md);
+  padding: var(--space-15);
+  background: var(--color-bg);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition-normal),
+              box-shadow var(--transition-normal);
+}
+
+.demo-grid article:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* Media section */
+.media-section {
+  margin-bottom: var(--space-3);
+}
+
+.media-section img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius-md);
+}
+
+.media-section figcaption {
+  font-size: 0.875rem;
+  opacity: 0.7;
+  margin-top: var(--space-05);
+}
+
+/* Blog grid */
+.blog-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-15);
+}
+
+/* Pagination */
+.pagination {
   display: flex;
   justify-content: center;
+  gap: var(--space-025);
+  margin: var(--space-2) 0;
+  flex-wrap: wrap;
+}
+
+.pagination a {
+  padding: 0.375rem 0.75rem;
+  border-radius: var(--border-radius-sm);
+  background: var(--color-bg);
+  color: var(--color-primary);
+  text-decoration: none;
+  border: 1px solid var(--color-accent);
+  transition: var(--transition-fast);
+}
+
+.pagination a:hover,
+.pagination a.active {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+/* Page footer */
+.page-footer {
+  padding: var(--space-2) 0;
+  border-top: 1px solid var(--color-accent);
+  color: var(--color-text);
+  font-size: 0.875rem;
+  margin-top: var(--space-3);
+}
+
+.page-footer nav a {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+  font-size: 0.875rem;
+  margin-bottom: var(--space-1);
+}
+
+.breadcrumbs ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  gap: 0.25rem;
+  padding: 0;
+}
 
-  padding: 1rem;
-  margin: 1rem;
+.breadcrumbs li {
+  line-height: 1.5;
+}
 
-  & pre {
-    font-size: xx-large;
-    color: rgba(204, 204, 204, 0.5);
+.breadcrumbs a {
+  display: inline;
+  padding: 0;
+  border: 0;
+  line-height: inherit;
+}
+
+.breadcrumbs li::before {
+  content: "/";
+  margin-right: 0.25rem;
+  opacity: 0.5;
+}
+
+.breadcrumbs li:first-child::before {
+  content: none;
+}
+
+.breadcrumbs [aria-current="page"] {
+  font-weight: 600;
+}
+
+/* ---- 11. Media Queries ------------------------------------- */
+/* Tablet: >= 640px */
+@media (min-width: 640px) {
+  .container {
+    padding: 0 var(--space-15);
   }
+
+  /* Nav horizontal */
+  nav ul {
+    flex-wrap: nowrap;
+  }
+
+  /* Blog grid 2-column */
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Demo grid 2-column */
+  .demo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Forms: 2-column layout for paired fields */
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-1);
+  }
+}
+
+/* Desktop: >= 1024px */
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 var(--space-2);
+  }
+
+  /* Blog grid 3-column */
+  .blog-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* Demo grid 3-column */
+  .demo-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---- 4a. Square color swatches ---------------------------- */
+.square {
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--border-radius-md);
+  margin-block: var(--space-05);
 }
 
 .square-one {
-  background-color: rgb(0, 153, 204);
+  background-color: var(--color-primary);
+}
 
-  & pre {
-    color: #ccc !important;
-  }
+.square-two {
+  background-color: var(--color-secondary);
+}
+
+.square-three {
+  background-color: var(--color-accent);
+}
+
+.square-four {
+  background-color: var(--color-bg);
+  border: 2px solid var(--color-accent);
 }
