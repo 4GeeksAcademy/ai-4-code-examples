@@ -2,41 +2,49 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <style type="text/tailwindcss">
-      @theme {
-        --color-bike-co-teal: #09c;
-        --color-purp: #753198;
-      }
-    </style>
+    <title>ai-4-code-examples</title>
+    <link href="/src/style.css" rel="stylesheet" />
   </head>
-  <body class="min-w-dvw min-h-dvh">
+  <body class="bg-fixed">
     <main
-      class="w-full min-h-dvh flex flex-col items-center py-3"
-      ,
-      style="
-        background: linear-gradient(
-          186deg,
-          rgba(251, 51, 166, 0.15),
-          rgba(127, 72, 176, 0.22) 59%,
-          rgba(48, 145, 211, 0.25) 100%
-        );
-      "
+      class="w-full h-dvh gap-6 flex flex-1 flex-row flex-wrap items-center justify-center p-6"
     >
-      <article class="">
-        <img
-          src="https://placehold.co/400x500/bebfe4/f8c4e5?text=a nifty tee shirt"
-          alt="a nifty tee shirt."
-          class="rounded-xl border-purp border-solid border-2 border-b-6"
-        />
-        <h5 class="text-2xl">A nifty tee shirt</h5>
-        <p>
-          <span class="line-through text-lg">$30.00</span>
-          <span class="text-xl">$18.00</span>
-        </p>
-      </article>
+      <!-- default card -->
+      <div class="card bg-sky-200 px-6 py-4" style="width: 15rem">
+        <div class="layout flex flex-0 flex-col gap-4 items-center">
+          <h3 class="text-2xl font-bold">The Ceiling Is Haunted</h3>
+          <img src="/corner_stare.jpg" alt="" />
+          <div class="body">
+            <p>
+              Grizelle was <em>very</em> suspicious of the corner of the
+              ceiling.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card bg-sky-200 px-6 py-4" style="width: 15rem">
+        <div class="layout flex flex-0 flex-col gap-4 items-center">
+          <h3 class="text-2xl font-bold">Dialect Map</h3>
+          <img src="/dialect-map.png" alt="" />
+          <div class="body">
+            <p>
+              Unsurpringly, the guy who has spent most of his life in the
+              Northeast talks like someone from the Northeast.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card bg-sky-200 px-6 py-4" style="width: 15rem">
+        <div class="layout flex flex-0 flex-col gap-4 items-center">
+          <h3 class="text-2xl font-bold">Muehuehuehue</h3>
+          <img src="/muehue.gif" alt="" />
+          <div class="body">
+            <p>This cat has only good things in mind.</p>
+          </div>
+        </div>
+      </div>
     </main>
   </body>
 </html>
