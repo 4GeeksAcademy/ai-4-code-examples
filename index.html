@@ -7,44 +7,197 @@
     <title>ai-4-code-examples</title>
     <link href="/src/style.css" rel="stylesheet" />
   </head>
-  <body class="bg-fixed">
+  <body class="bg-slate-400 pt-4 pb-8">
     <main
-      class="w-full h-dvh gap-6 flex flex-1 flex-row flex-wrap items-center justify-center p-6"
+      class="w-full h-full gap-6 flex flex-1 flex-row flex-wrap items-center justify-center p-6"
     >
-      <!-- default card -->
-      <div class="card bg-sky-200 px-6 py-4" style="width: 15rem">
-        <div class="layout flex flex-0 flex-col gap-4 items-center">
-          <h3 class="text-2xl font-bold">The Ceiling Is Haunted</h3>
-          <img src="/corner_stare.jpg" alt="" />
-          <div class="body">
-            <p>
-              Grizelle was <em>very</em> suspicious of the corner of the
-              ceiling.
-            </p>
-          </div>
+      <!-- Login form: -->
+      <form
+        id="login-form"
+        class="flex flex-col items-center gap-3 min-w-1/2 px-3 pt-4 pb-6 rounded-2xl bg-slate-700 text-white"
+      >
+        <img
+          src="https://placehold.co/200x75"
+          id="brand-logo"
+          class="rounded-full max-w-3/4 mb-3"
+          alt=""
+        />
+        <div class="endcap-label w-full flex flex-1">
+          <label
+            class="p-1 mr-0 w-[30%] bg-emerald-400 rounded-l-md border-r-2 border-emerald-800 text-gray-700 italic"
+            for="email"
+            >email</label
+          >
+          <input
+            class="p-1 ml-0 bg-white text-black rounded-r-md grow"
+            type="email"
+            name="email"
+            id="email"
+            required
+          />
         </div>
-      </div>
-      <div class="card bg-sky-200 px-6 py-4" style="width: 15rem">
-        <div class="layout flex flex-0 flex-col gap-4 items-center">
-          <h3 class="text-2xl font-bold">Dialect Map</h3>
-          <img src="/dialect-map.png" alt="" />
-          <div class="body">
-            <p>
-              Unsurpringly, the guy who has spent most of his life in the
-              Northeast talks like someone from the Northeast.
-            </p>
-          </div>
+        <div class="endcap-label w-full flex flex-1">
+          <label
+            class="p-1 mr-0 w-[30%] bg-emerald-400 rounded-l-md border-r-2 border-emerald-800 text-gray-700 italic"
+            for="password"
+            >password</label
+          >
+          <input
+            class="p-1 ml-0 bg-white text-black rounded-r-md grow"
+            type="password"
+            name="password"
+            id="password"
+            required
+          />
         </div>
-      </div>
-      <div class="card bg-sky-200 px-6 py-4" style="width: 15rem">
-        <div class="layout flex flex-0 flex-col gap-4 items-center">
-          <h3 class="text-2xl font-bold">Muehuehuehue</h3>
-          <img src="/muehue.gif" alt="" />
-          <div class="body">
-            <p>This cat has only good things in mind.</p>
-          </div>
+        <div class="w-full mt-3 flex flex-0 justify-center gap-3">
+          <button class="bg-emerald-600 px-2 py-1 rounded-md">Log In</button>
+          <button class="bg-blue-500 px-2 py-1 rounded-md">Sign Up</button>
         </div>
-      </div>
+        <a href="#" class="underline text-gray-300 hover:text-white"
+          ><small class="italic">Forgot your password?</small></a
+        >
+      </form>
+
+      <!-- Payment Form -->
+      <form
+        id="payment-form"
+        class="grid grid-cols-12 gap-4 min-w-1/2 max-w-3/4 px-3 pt-4 pb-6 rounded-2xl bg-slate-700"
+      >
+        <div class="endcap-label col-span-8 w-full flex flex-1">
+          <label
+            class="p-1 mr-0 bg-emerald-400 rounded-l-md border-r-2 border-emerald-800 text-gray-700 italic"
+            for="ccn"
+            >ccn</label
+          >
+          <input
+            class="p-1 ml-0 bg-white text-black rounded-r-md grow"
+            type="text"
+            name="ccn"
+            id="ccn"
+            autocomplete="cc-number"
+          />
+        </div>
+        <input
+          class="p-1 bg-white col-span-2 rounded-md"
+          type="text"
+          name="cvv"
+          placeholder="cvv"
+          pattern="\d{3}"
+          maxlength="3"
+          minlength="3"
+          autocomplete="cc-csc"
+        />
+        <input
+          type="text"
+          name="expy"
+          class="p-1 bg-white text black col-span-2 rounded-md"
+          placeholder="00/00"
+          autocomplete="cc-exp"
+        />
+        <div class="endcap-label col-span-12 w-full flex flex-1">
+          <label
+            class="p-1 mr-0 bg-emerald-400 rounded-l-md border-r-2 border-emerald-800 text-gray-700 italic"
+            for="cc-name"
+            >name on card</label
+          >
+          <input
+            class="p-1 ml-0 bg-white text-black rounded-r-md grow"
+            type="text"
+            name="cc-name"
+            id="cc-name"
+            autocomplete="cc-name"
+          />
+        </div>
+        <div class="endcap-label col-span-12 w-full flex flex-1">
+          <label
+            class="p-1 mr-0 bg-emerald-400 rounded-l-md border-r-2 border-emerald-800 text-gray-700 italic"
+            for="addy"
+            >address</label
+          >
+          <input
+            class="p-1 ml-0 bg-white text-black rounded-r-md grow"
+            type="text"
+            name="addy"
+            id="addy"
+            autocomplete="street-address"
+          />
+        </div>
+        <input
+          type="text"
+          name="city"
+          class="p-1 bg-white text black col-span-5 rounded-md"
+          placeholder="city"
+          autocomplete="address-level2"
+        />
+        <select class="p-1 bg-white text black col-span-5 rounded-md">
+          <option value="AL">Alabama</option>
+          <option value="AK">Alaska</option>
+          <option value="AZ">Arizona</option>
+          <option value="AR">Arkansas</option>
+          <option value="CA">California</option>
+          <option value="CO">Colorado</option>
+          <option value="CT">Connecticut</option>
+          <option value="DE">Delaware</option>
+          <option value="DC">District Of Columbia</option>
+          <option value="FL">Florida</option>
+          <option value="GA">Georgia</option>
+          <option value="HI">Hawaii</option>
+          <option value="ID">Idaho</option>
+          <option value="IL">Illinois</option>
+          <option value="IN">Indiana</option>
+          <option value="IA">Iowa</option>
+          <option value="KS">Kansas</option>
+          <option value="KY">Kentucky</option>
+          <option value="LA">Louisiana</option>
+          <option value="ME">Maine</option>
+          <option value="MD">Maryland</option>
+          <option value="MA">Massachusetts</option>
+          <option value="MI">Michigan</option>
+          <option value="MN">Minnesota</option>
+          <option value="MS">Mississippi</option>
+          <option value="MO">Missouri</option>
+          <option value="MT">Montana</option>
+          <option value="NE">Nebraska</option>
+          <option value="NV">Nevada</option>
+          <option value="NH">New Hampshire</option>
+          <option value="NJ">New Jersey</option>
+          <option value="NM">New Mexico</option>
+          <option value="NY">New York</option>
+          <option value="NC">North Carolina</option>
+          <option value="ND">North Dakota</option>
+          <option value="OH">Ohio</option>
+          <option value="OK">Oklahoma</option>
+          <option value="OR">Oregon</option>
+          <option value="PA">Pennsylvania</option>
+          <option value="RI">Rhode Island</option>
+          <option value="SC">South Carolina</option>
+          <option value="SD">South Dakota</option>
+          <option value="TN">Tennessee</option>
+          <option value="TX">Texas</option>
+          <option value="UT">Utah</option>
+          <option value="VT">Vermont</option>
+          <option value="VA">Virginia</option>
+          <option value="WA">Washington</option>
+          <option value="WV">West Virginia</option>
+          <option value="WI">Wisconsin</option>
+          <option value="WY">Wyoming</option>
+        </select>
+        <input
+          type="text"
+          name="zip"
+          class="p-1 bg-white text black col-span-2 rounded-md"
+          placeholder="zip"
+          autocomplete="postal-code"
+        />
+        <button class="bg-emerald-500 rounded-md col-span-4 p-2">
+          Return To Cart
+        </button>
+        <div class="col-span-4"></div>
+        <button class="bg-blue-500 rounded-md col-span-4 p-2">
+          Return To Cart
+        </button>
+      </form>
     </main>
   </body>
 </html>
